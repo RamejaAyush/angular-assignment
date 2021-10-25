@@ -1,7 +1,12 @@
 <nav>
   <h1>Angular Assignment</h1>
-  <div class="nav-links">
+  <div class="nav-links" *ngIf="!AuthService.userCanLogIn">
     <a routerLink="log-in">Sign Up</a>
     <a routerLink="sign-up">Sign In</a>
+  </div>
+  <div class="nav-links increase" *ngIf="AuthService.userCanLogIn">
+    <a routerLink="about">About</a>
+    <a routerLink="dashboard">Dashboard</a>
+    <button>Log Out</button>
   </div>
 </nav>

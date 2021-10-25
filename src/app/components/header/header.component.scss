@@ -17,6 +17,10 @@ nav {
     display: flex;
     justify-content: space-between;
 
+    &.increase {
+      width: 25%;
+    }
+
     a {
       color: rgb(255, 255, 255);
       text-decoration: none;
