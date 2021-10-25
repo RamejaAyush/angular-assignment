@@ -36,6 +36,7 @@ export class UserAuthService {
   }
 
   logOut() {
-    this.userCanLogIn = true;
+    this.userCanLogIn = false;
+    this.router.navigate(['log-in']);
   }
 }
