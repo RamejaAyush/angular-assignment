@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Injectable({
   providedIn: 'root',
@@ -6,14 +7,32 @@ import { Injectable } from '@angular/core';
 export class UserAuthService {
   userCanLogIn: boolean = false;
 
-  constructor() {}
+  constructor(private router: Router) {}
 
-  logIn() {
-    this.userCanLogIn = true;
+  logIn(username, password) {
+    if (username == '') {
+      window.alert('Please enter a valid username');
+      this.router.navigate(['log-in']);
+    } else if (password == '') {
+      window.alert('Please enter a valid password');
+      this.router.navigate(['log-in']);
+    } else {
+      this.userCanLogIn = true;
+      this.router.navigate(['dashboard']);
+    }
   }
 
-  signUp() {
-    this.userCanLogIn = true;
+  signUp(username, password) {
+    if (username == '') {
+      window.alert('Please enter a valid username');
+      this.router.navigate(['log-in']);
+    } else if (password == '') {
+      window.alert('Please enter a valid password');
+      this.router.navigate(['log-in']);
+    } else {
+      this.userCanLogIn = true;
+      this.router.navigate(['dashboard']);
+    }
   }
 
   logOut() {

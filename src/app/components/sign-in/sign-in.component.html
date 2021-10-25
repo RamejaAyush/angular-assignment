@@ -6,14 +6,19 @@
     <div class="form-components">
       <div class="email">
         <p>Email:</p>
-        <input type="email" required />
+        <input type="email" #username required />
       </div>
       <div class="password">
         <p>Password:</p>
-        <input type="password" required />
+        <input type="password" #password required />
       </div>
       <div class="button-section">
-        <button class="login">Login</button>
+        <button
+          class="login"
+          (click)="AuthService.logIn(username.value, password.value)"
+        >
+          Login
+        </button>
         <p>or <a routerLink="/sign-up">Make a new account</a></p>
       </div>
     </div>
