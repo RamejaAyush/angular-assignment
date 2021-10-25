@@ -4,9 +4,13 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-around;
-  animation: newAnim 2s ease-in-out;
   z-index: 10;
   position: fixed;
+  background-color: black;
+
+  h1 {
+    color: white;
+  }
 
   .nav-links {
     width: 15%;
@@ -14,7 +18,7 @@ nav {
     justify-content: space-between;
 
     a {
-      color: rgb(0, 0, 0);
+      color: rgb(255, 255, 255);
       text-decoration: none;
       z-index: 1;
       position: relative;
@@ -29,7 +33,7 @@ nav {
         left: 0;
         right: 0;
         height: 2px;
-        background-color: black;
+        background-color: rgb(255, 255, 255);
         transform: scaleX(0);
         transform-origin: left;
         transition: transform 150ms ease-in-out;
@@ -40,25 +44,3 @@ nav {
     }
   }
 }
-
-// @keyframes newAnim {
-//   0% {
-//     height: 0vh;
-//     opacity: 0;
-//     background-color: black;
-//   }
-//   50% {
-//     background-color: black;
-//     height: 100vh;
-//   }
-//   90% {
-//     background-color: black;
-//     height: 10vh;
-//   }
-//   98% {
-//     background-color: rgb(255, 255, 255);
-//   }
-//   100% {
-//     opacity: 1;
-//   }
-// }
