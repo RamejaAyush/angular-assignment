@@ -10,6 +10,7 @@ import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { AboutComponent } from './components/about/about.component';
 import { HttpClientModule } from '@angular/common/http';
 import { AddItemComponent } from './components/add-item/add-item.component';
+import { StatusComponent } from './components/status/status.component';
 
 @NgModule({
   declarations: [
@@ -20,6 +21,7 @@ import { AddItemComponent } from './components/add-item/add-item.component';
     DashboardComponent,
     AboutComponent,
     AddItemComponent,
+    StatusComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule],
   providers: [],

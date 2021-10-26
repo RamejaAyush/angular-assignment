@@ -24,6 +24,9 @@
 
       .buttons {
         margin-right: 5%;
+        width: 12%;
+        display: flex;
+        justify-content: space-between;
 
         button {
           padding: 8px 11px;

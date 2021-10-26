@@ -4,6 +4,10 @@
     <div class="header-dashboard">
       <h1>Dashboard</h1>
       <div class="buttons">
+        <button class="edit" (click)="changeEditState()">
+          <i class="fas fa-edit"></i>Edit
+        </button>
+
         <button class="add" (click)="goToAddItem()">
           <i class="fas fa-plus-square"></i>Add
         </button>
@@ -16,14 +20,15 @@
       <div class="item" *ngFor="let item of ItemService.Items">
         <div class="item-header">
           <input
-            readonly
-            *ngIf="!editable"
+            *ngIf="editable"
+            class="editable"
             type="text"
+            #newName
             value="{{ item.name }}"
           />
           <input
-            *ngIf="editable"
-            class="editable"
+            readonly
+            *ngIf="!editable"
             type="text"
             value="{{ item.name }}"
           />

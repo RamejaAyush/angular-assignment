@@ -8,7 +8,7 @@ import { ItemService } from 'src/app/services/item.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
-  editable: boolean = true;
+  editable: boolean = false;
   displayMessage: boolean;
 
   constructor(private itemService: ItemService, private router: Router) {}
