@@ -7,6 +7,7 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
   styleUrls: ['./dashboard.component.scss'],
 })
 export class DashboardComponent implements OnInit {
+  editable: boolean = false;
   itemData: any;
 
   constructor(private authService: UserAuthService) {}
@@ -20,5 +21,9 @@ export class DashboardComponent implements OnInit {
         console.log(err);
       }
     );
+  }
+
+  changeEditState() {
+    this.editable = !this.editable;
   }
 }

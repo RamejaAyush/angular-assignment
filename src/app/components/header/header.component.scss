@@ -50,16 +50,11 @@ nav {
     button {
       padding: 5px 10px;
       border-radius: 5px;
-      background: transparent;
       color: white;
       border: 1px solid rgb(255, 255, 255);
+      background-color: red;
       cursor: pointer;
-      transition: all 150ms ease-in-out;
-
-      &:hover {
-        background-color: red;
-        border-color: red;
-      }
+      border-color: red;
     }
   }
 }
