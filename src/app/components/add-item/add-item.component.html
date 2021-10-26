@@ -6,7 +6,7 @@
     <div class="form-components">
       <input type="text" autofocus placeholder="name" #enteredName />
       <input type="text" placeholder="desc" #enteredDesc />
-      <input type="text" placeholder="price" #enteredPrice />
+      <input type="number" placeholder="price" #enteredPrice />
       <button
         (click)="ItemService.addItem(enteredName, enteredDesc, enteredPrice)"
       >

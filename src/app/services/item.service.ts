@@ -24,7 +24,7 @@ export class ItemService {
     if (
       enteredName.value == '' ||
       enteredDesc.value == '' ||
-      enteredPrice.value == ''
+      enteredPrice.value == 0
     ) {
       alert('enter valid values');
       return;
@@ -39,7 +39,7 @@ export class ItemService {
       localStorage.setItem('items', JSON.stringify(this.Items));
       enteredName.value = '';
       enteredDesc.value = '';
-      enteredPrice.value = '';
+      enteredPrice.value = 0;
       this.router.navigate(['dashboard']);
     }
   }

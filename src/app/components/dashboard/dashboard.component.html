@@ -4,10 +4,15 @@
     <div class="header-dashboard">
       <h1>Dashboard</h1>
       <div class="buttons">
-        <button class="add"><i class="fas fa-plus-square"></i>Add</button>
+        <button class="add" (click)="goToAddItem()">
+          <i class="fas fa-plus-square"></i>Add
+        </button>
       </div>
     </div>
-    <div class="all-items">
+    <div *ngIf="displayMessage" class="add-message">
+      <h1>No Items to show. Add some</h1>
+    </div>
+    <div *ngIf="!displayMessage" class="all-items">
       <div class="item" *ngFor="let item of ItemService.Items">
         <div class="item-header">
           <input
@@ -44,10 +49,12 @@
           />
           <input
             class="editable"
-            type="text"
+            type="number"
             *ngIf="editable"
             value="Rs {{ item.price }}"
           />
+        </div>
+        <div class="delete">
           <button (click)="ItemService.deleteItem(item)">delete</button>
         </div>
       </div>
