@@ -1,20 +1,15 @@
 <section class="add-form">
+  <div class="form-header">
+    <h1>Add New Product</h1>
+  </div>
   <div class="form">
-    <div class="form-header">
-      <h1>Add New Item</h1>
-    </div>
-    <div class="form-components">
-      <div class="email">
-        <p>Item name:</p>
-        <input type="email" required />
-      </div>
-      <div class="password">
-        <p>Description:</p>
-        <input type="password" required />
-      </div>
-      <div class="button-section">
-        <button class="login">Add Item</button>
-      </div>
-    </div>
+    <input type="text" placeholder="name" #enteredName />
+    <input type="text" placeholder="desc" #enteredDesc />
+    <input type="text" placeholder="price" #enteredPrice />
+    <button
+      (click)="ItemService.addItem(enteredName, enteredDesc, enteredPrice)"
+    >
+      add item
+    </button>
   </div>
 </section>

@@ -11,7 +11,7 @@
       </div>
     </div>
     <div class="all-items">
-      <div class="item" *ngFor="let item of itemData">
+      <div class="item" *ngFor="let item of ItemService.Items">
         <div class="item-header">
           <input
             readonly
@@ -51,6 +51,7 @@
             *ngIf="editable"
             value="Rs {{ item.price }}"
           />
+          <button (click)="ItemService.deleteItem(item)">delete</button>
         </div>
       </div>
     </div>

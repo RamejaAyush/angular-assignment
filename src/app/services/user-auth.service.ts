@@ -41,8 +41,4 @@ export class UserAuthService {
     this.userCanLogIn = false;
     this.router.navigate(['log-in']);
   }
-
-  getProducts() {
-    return this.http.get(this.localUrl);
-  }
 }

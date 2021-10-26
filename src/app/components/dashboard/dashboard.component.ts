@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UserAuthService } from 'src/app/services/user-auth.service';
+import { ItemService } from 'src/app/services/item.service';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,19 +8,13 @@ import { UserAuthService } from 'src/app/services/user-auth.service';
 })
 export class DashboardComponent implements OnInit {
   editable: boolean = false;
-  itemData: any;
 
-  constructor(private authService: UserAuthService) {}
+  constructor(private itemService: ItemService) {}
+
+  ItemService = this.itemService;
 
   ngOnInit(): void {
-    this.authService.getProducts().subscribe(
-      (res) => {
-        this.itemData = res;
-      },
-      (err) => {
-        console.log(err);
-      }
-    );
+    console.log(this.itemService.Items);
   }
 
   changeEditState() {
