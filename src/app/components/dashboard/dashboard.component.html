@@ -4,5 +4,18 @@
     <div class="header-dashboard">
       <h1>Dashboard</h1>
     </div>
+    <div class="all-items">
+      <div class="item" *ngFor="let item of itemData">
+        <div class="item-header">
+          <input readonly type="text" value="{{ item.name }}" />
+        </div>
+        <div class="item-desc">
+          <textarea readonly value="{{ item.desc }}"></textarea>
+        </div>
+        <div class="item-price">
+          <input type="text" readonly value="Rs {{ item.price }}" />
+        </div>
+      </div>
+    </div>
   </div>
 </section>

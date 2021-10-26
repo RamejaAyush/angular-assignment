@@ -1,13 +1,15 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
+import { HttpClient } from '@angular/common/http';
 
 @Injectable({
   providedIn: 'root',
 })
 export class UserAuthService {
   userCanLogIn: boolean = true;
+  localUrl = '../../assets/items.json';
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private http: HttpClient) {}
 
   logIn(username, password) {
     if (username == '') {
@@ -38,5 +40,9 @@ export class UserAuthService {
   logOut() {
     this.userCanLogIn = false;
     this.router.navigate(['log-in']);
+  }
+
+  getProducts() {
+    return this.http.get(this.localUrl);
   }
 }
