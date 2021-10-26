@@ -1,4 +1,5 @@
 import { Injectable } from '@angular/core';
+import { Router } from '@angular/router';
 import { ITEM } from './interfaceItem';
 
 @Injectable({
@@ -10,7 +11,7 @@ export class ItemService {
   localItem: string;
   Items: ITEM[];
 
-  constructor() {
+  constructor(private router: Router) {
     this.localItem = localStorage.getItem('items');
     if (this.localItem == null) {
       this.Items = [];
@@ -20,19 +21,27 @@ export class ItemService {
   }
 
   addItem(enteredName, enteredDesc, enteredPrice) {
-    let item: ITEM = {
-      id: this.Items.length + 1,
-      name: enteredName.value,
-      desc: enteredDesc.value,
-      price: enteredPrice.value,
-    };
-    this.Items.push(item);
-    localStorage.setItem('items', JSON.stringify(this.Items));
-    enteredName.value = '';
-    enteredDesc.value = '';
-    enteredPrice.value = '';
-
-    alert('item is made');
+    if (
+      enteredName.value == '' ||
+      enteredDesc.value == '' ||
+      enteredPrice.value == ''
+    ) {
+      alert('enter valid values');
+      return;
+    } else {
+      let item: ITEM = {
+        id: this.Items.length + 1,
+        name: enteredName.value,
+        desc: enteredDesc.value,
+        price: enteredPrice.value,
+      };
+      this.Items.push(item);
+      localStorage.setItem('items', JSON.stringify(this.Items));
+      enteredName.value = '';
+      enteredDesc.value = '';
+      enteredPrice.value = '';
+      this.router.navigate(['dashboard']);
+    }
   }
 
   deleteItem(item: ITEM) {
