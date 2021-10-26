@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
   providedIn: 'root',
 })
 export class UserAuthService {
-  userCanLogIn: boolean = true;
+  userCanLogIn: boolean = false;
   localUrl = '../../assets/items.json';
 
   constructor(private router: Router, private http: HttpClient) {}

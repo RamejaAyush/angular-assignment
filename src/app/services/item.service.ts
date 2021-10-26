@@ -26,7 +26,7 @@ export class ItemService {
       enteredDesc.value == '' ||
       enteredPrice.value == 0
     ) {
-      alert('enter valid values');
+      window.alert('Enter Valid Values');
       return;
     } else {
       let item: ITEM = {
@@ -41,6 +41,7 @@ export class ItemService {
       enteredDesc.value = '';
       enteredPrice.value = 0;
       this.router.navigate(['dashboard']);
+      alert('Item Created');
     }
   }
 
