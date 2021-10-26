@@ -6,6 +6,7 @@ import { SignUpComponent } from './components/sign-up/sign-up.component';
 import { AuthGuard } from '../app/services/auth.guard';
 import { LoginGuard } from '../app/services/login.guard';
 import { AboutComponent } from './components/about/about.component';
+import { AddItemComponent } from './components/add-item/add-item.component';
 
 const routes: Routes = [
   { path: 'log-in', component: SignInComponent, canActivate: [LoginGuard] },
@@ -18,6 +19,11 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent,
+    canActivate: [AuthGuard],
+  },
+  {
+    path: 'add-item',
+    component: AddItemComponent,
     canActivate: [AuthGuard],
   },
   {

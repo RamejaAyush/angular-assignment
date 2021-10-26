@@ -5,8 +5,9 @@
     <a routerLink="sign-up">Sign In</a>
   </div>
   <div class="nav-links increase" *ngIf="AuthService.userCanLogIn">
-    <a routerLink="about">About</a>
     <a routerLink="dashboard">Dashboard</a>
+    <a routerLink="add-item">Add Item</a>
+    <a routerLink="about">About</a>
     <button (click)="AuthService.logOut()">Log Out</button>
   </div>
 </nav>
