@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { ITEM } from './interfaceItem';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
@@ -11,7 +12,7 @@ export class ItemService {
   localItem: string;
   Items: ITEM[];
 
-  constructor(private router: Router) {
+  constructor(private router: Router, private toaster: ToastrService) {
     this.localItem = localStorage.getItem('items');
     if (this.localItem == null) {
       this.Items = [];
@@ -26,7 +27,7 @@ export class ItemService {
       enteredDesc.value == '' ||
       enteredPrice.value == 0
     ) {
-      window.alert('Enter Valid Values');
+      this.toaster.error('Enter Valid Values');
       return;
     } else {
       let item: ITEM = {
@@ -37,11 +38,12 @@ export class ItemService {
       };
       this.Items.push(item);
       localStorage.setItem('items', JSON.stringify(this.Items));
+      this.toaster.success('changes are saved in localstorage');
       enteredName.value = '';
       enteredDesc.value = '';
       enteredPrice.value = 0;
       this.router.navigate(['dashboard']);
-      alert('Item Created');
+      this.toaster.success('task is created');
     }
   }
 
@@ -49,5 +51,6 @@ export class ItemService {
     const index = this.Items.indexOf(item);
     this.Items.splice(index, 1);
     localStorage.setItem('items', JSON.stringify(this.Items));
+    this.toaster.success('Item removed');
   }
 }

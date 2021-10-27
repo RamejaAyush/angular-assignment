@@ -8,12 +8,17 @@ import {
 } from '@angular/router';
 import { Observable } from 'rxjs';
 import { UserAuthService } from './user-auth.service';
+import { ToastrService } from 'ngx-toastr';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthGuard implements CanActivate {
-  constructor(private userAuth: UserAuthService, private router: Router) {}
+  constructor(
+    private userAuth: UserAuthService,
+    private router: Router,
+    private toaster: ToastrService
+  ) {}
   canActivate(
     next: ActivatedRouteSnapshot,
     state: RouterStateSnapshot
@@ -23,6 +28,7 @@ export class AuthGuard implements CanActivate {
     | boolean
     | UrlTree {
     if (!this.userAuth.userCanLogIn) {
+      this.toaster.error('Can not login');
       this.router.navigate(['log-in']);
     }
     return true;
